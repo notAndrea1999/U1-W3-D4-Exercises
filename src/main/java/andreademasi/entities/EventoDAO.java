@@ -14,11 +14,16 @@ public class EventoDAO {
     }
 
     public void save(Evento evento) {
-        EntityTransaction transaction = em.getTransaction();
-        transaction.begin();
-        em.persist(evento);
-        transaction.commit();
-        System.out.println("Evento salvato con successo");
+        try {
+            EntityTransaction transaction = em.getTransaction();
+            transaction.begin();
+            em.persist(evento);
+            transaction.commit();
+            System.out.println("Evento salvato con successo");
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+
     }
 
     public Evento findById(long id) {
