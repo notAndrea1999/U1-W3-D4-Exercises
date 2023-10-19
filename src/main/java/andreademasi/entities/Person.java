@@ -19,6 +19,7 @@ public class Person {
     @OneToMany(mappedBy = "person")
     private List<Partecipation> partecipationList;
 
+
     public Person(String first_name, String last_name, String email, LocalDate birth_date, Gender gender) {
         this.first_name = first_name;
         this.last_name = last_name;

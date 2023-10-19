@@ -1,7 +1,4 @@
-package andreademasi.dao;
-
-import andreademasi.entities.Location;
-import andreademasi.entities.Partecipation;
+package andreademasi.entities;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;

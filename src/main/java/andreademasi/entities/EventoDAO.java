@@ -1,9 +1,9 @@
-package andreademasi.dao;
-
-import andreademasi.entities.Evento;
+package andreademasi.entities;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class EventoDAO {
 
@@ -45,5 +45,10 @@ public class EventoDAO {
         System.out.println("L'evento e' stato refreshato");
     }
 
+    public List<Concerto> getConcertiPerGenere(String genere) {
+        TypedQuery<Concerto> getConcerto = em.createQuery("SELECT c FROM Concerto c WHERE LOWER(c.genere) LIKE LOWER(CONCAT(:genere, '%'))", Concerto.class);
+        getConcerto.setParameter("genere", genere);
+        return getConcerto.getResultList();
 
+    }
 }

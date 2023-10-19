@@ -1,6 +1,4 @@
-package andreademasi.dao.entities;
-
-import andreademasi.entities.Partecipation;
+package andreademasi.entities;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
