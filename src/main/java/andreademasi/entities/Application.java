@@ -26,7 +26,7 @@ public class Application {
             concertoList.forEach(concerto -> System.out.println(concerto));
 
 
-            List<Concerto> concertoListPerStreaming = ed.getConcertiPerStraming(InStreaming.TRUE);
+            List<Concerto> concertoListPerStreaming = ed.getConcertiPerStraming(Streaming.TRUE);
             concertoListPerStreaming.forEach(concerto -> System.out.println(concerto));
 
 

@@ -46,14 +46,14 @@ public class EventoDAO {
     }
 
 
-    public List<Concerto> getConcertiPerStraming(InStreaming streaming) {
-        TypedQuery<Concerto> getConcerto = em.createQuery("SELECT c.InStreaming FROM Concerto c WHERE c.InStreaming LIKE :streaming", Concerto.class);
+    public List<Concerto> getConcertiPerStraming(Streaming streaming) {
+        TypedQuery<Concerto> getConcerto = em.createQuery("SELECT c FROM Concerto c WHERE c.streaming = :streaming", Concerto.class);
         getConcerto.setParameter("streaming", streaming);
         return getConcerto.getResultList();
     }
 
     public List<Concerto> getConcertiPerGenere(Genere genere) {
-        TypedQuery<Concerto> getConcerto = em.createQuery("SELECT c FROM Concerto c WHERE c.Genere LIKE :genere", Concerto.class);
+        TypedQuery<Concerto> getConcerto = em.createQuery("SELECT c FROM Concerto c WHERE c.genere = :genere", Concerto.class);
         getConcerto.setParameter("genere", genere);
         return getConcerto.getResultList();
     }
