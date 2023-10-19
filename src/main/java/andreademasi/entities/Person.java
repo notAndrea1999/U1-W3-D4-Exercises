@@ -3,6 +3,7 @@ package andreademasi.entities;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "people")
@@ -19,6 +20,13 @@ public class Person {
     @OneToMany(mappedBy = "person")
     private List<Partecipation> partecipationList;
 
+    @ManyToMany
+    @JoinTable(name = "persone_gare",
+            joinColumns = @JoinColumn(name = "person_id"),
+            inverseJoinColumns = @JoinColumn(name = "gara_id"))
+    private Set<GaraDiAtletica> gareDiAtletica;
+    @OneToMany(mappedBy = "vincitore")
+    private List<GaraDiAtletica> gara_vinta;
 
     public Person(String first_name, String last_name, String email, LocalDate birth_date, Gender gender) {
         this.first_name = first_name;
@@ -28,8 +36,23 @@ public class Person {
         this.gender = gender;
     }
 
-
     public Person() {
+    }
+
+    public Set<GaraDiAtletica> getGareDiAtletica() {
+        return gareDiAtletica;
+    }
+
+    public void setGareDiAtletica(Set<GaraDiAtletica> gareDiAtletica) {
+        this.gareDiAtletica = gareDiAtletica;
+    }
+
+    public List<GaraDiAtletica> getGara_vinta() {
+        return gara_vinta;
+    }
+
+    public void setGara_vinta(List<GaraDiAtletica> gara_vinta) {
+        this.gara_vinta = gara_vinta;
     }
 
     public long getId() {

@@ -1,27 +1,30 @@
 package andreademasi.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
 public class GaraDiAtletica extends Evento {
+    @ManyToMany
+    @JoinTable(name = "persone_gare",
+            joinColumns = @JoinColumn(name = "gara_id"),
+            inverseJoinColumns = @JoinColumn(name = "person_id"))
     private Set<Person> atleti;
 
-    @OneToOne
-    @JoinColumn(name = "vincitore_id")
+    @ManyToOne
+    @JoinColumn(name = "person_id")
     private Person vincitore;
+
 
     public GaraDiAtletica() {
     }
 
-    public GaraDiAtletica(String titolo, LocalDate data_evento, String descrizione, andreademasi.entities.tipoEvento tipoEvento, int numero_massimo_partecipanti, Set<Person> atleti, Person vincitore) {
-        super(titolo, data_evento, descrizione, tipoEvento, numero_massimo_partecipanti);
+    public GaraDiAtletica(String titolo, LocalDate data_evento, String descrizione, andreademasi.entities.tipoEvento tipoEvento, int numero_massimo_partecipanti, Location location, Set<Person> atleti) {
+        super(titolo, data_evento, descrizione, tipoEvento, numero_massimo_partecipanti, location);
         this.atleti = atleti;
-        this.vincitore = vincitore;
     }
+
 
     public Set<Person> getAtleti() {
         return atleti;

@@ -14,8 +14,8 @@ public class PartitaDiCalcio extends Evento {
     public PartitaDiCalcio() {
     }
 
-    public PartitaDiCalcio(String titolo, LocalDate data_evento, String descrizione, andreademasi.entities.tipoEvento tipoEvento, int numero_massimo_partecipanti, String squadra_di_casa, String squadra_ospite, String squadra_vincente, int gol_squadra_di_casa, int gol_squadra_ospite) {
-        super(titolo, data_evento, descrizione, tipoEvento, numero_massimo_partecipanti);
+    public PartitaDiCalcio(String titolo, LocalDate data_evento, String descrizione, andreademasi.entities.tipoEvento tipoEvento, int numero_massimo_partecipanti, Location location, String squadra_di_casa, String squadra_ospite, String squadra_vincente, int gol_squadra_di_casa, int gol_squadra_ospite) {
+        super(titolo, data_evento, descrizione, tipoEvento, numero_massimo_partecipanti, location);
         this.squadra_di_casa = squadra_di_casa;
         this.squadra_ospite = squadra_ospite;
         this.squadra_vincente = squadra_vincente;

@@ -45,10 +45,18 @@ public class EventoDAO {
         System.out.println("L'evento e' stato refreshato");
     }
 
-    public List<Concerto> getConcertiPerGenere(String genere) {
-        TypedQuery<Concerto> getConcerto = em.createQuery("SELECT c FROM Concerto c WHERE LOWER(c.genere) LIKE LOWER(CONCAT(:genere, '%'))", Concerto.class);
+
+    public List<Concerto> getConcertiPerStraming(InStreaming streaming) {
+        TypedQuery<Concerto> getConcerto = em.createQuery("SELECT c.InStreaming FROM Concerto c WHERE c.InStreaming LIKE :streaming", Concerto.class);
+        getConcerto.setParameter("streaming", streaming);
+        return getConcerto.getResultList();
+    }
+
+    public List<Concerto> getConcertiPerGenere(Genere genere) {
+        TypedQuery<Concerto> getConcerto = em.createQuery("SELECT c FROM Concerto c WHERE c.Genere LIKE :genere", Concerto.class);
         getConcerto.setParameter("genere", genere);
         return getConcerto.getResultList();
-
     }
+
+
 }

@@ -16,8 +16,8 @@ public class Concerto extends Evento {
     public Concerto() {
     }
 
-    public Concerto(String titolo, LocalDate data_evento, String descrizione, andreademasi.entities.tipoEvento tipoEvento, int numero_massimo_partecipanti, Genere genere, InStreaming streaming) {
-        super(titolo, data_evento, descrizione, tipoEvento, numero_massimo_partecipanti);
+    public Concerto(String titolo, LocalDate data_evento, String descrizione, andreademasi.entities.tipoEvento tipoEvento, int numero_massimo_partecipanti, Location location, Genere genere, InStreaming streaming) {
+        super(titolo, data_evento, descrizione, tipoEvento, numero_massimo_partecipanti, location);
         this.genere = genere;
         this.streaming = streaming;
     }

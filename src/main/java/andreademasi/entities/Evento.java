@@ -5,8 +5,9 @@ import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "eventi")
-public class Evento {
+public abstract class Evento {
     @Id
     @GeneratedValue
     private long id;
@@ -27,12 +28,13 @@ public class Evento {
     public Evento() {
     }
 
-    public Evento(String titolo, LocalDate data_evento, String descrizione, tipoEvento tipoEvento, int numero_massimo_partecipanti) {
+    public Evento(String titolo, LocalDate data_evento, String descrizione, tipoEvento tipoEvento, int numero_massimo_partecipanti, Location location) {
         this.titolo = titolo;
         this.data_evento = data_evento;
         this.descrizione = descrizione;
         this.tipoEvento = tipoEvento;
         this.numero_massimo_partecipanti = numero_massimo_partecipanti;
+        this.location = location;
     }
 
     public Set<Partecipation> getPartecipationSet() {
@@ -102,4 +104,6 @@ public class Evento {
                 ", numero_massimo_partecipanti=" + numero_massimo_partecipanti +
                 '}';
     }
+
+    
 }
