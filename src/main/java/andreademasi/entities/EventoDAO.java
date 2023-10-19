@@ -69,5 +69,11 @@ public class EventoDAO {
         return getPartita.getResultList();
     }
 
+    public List<PartitaDiCalcio> getPartiteVinteInTrasferta(String squadraospite) {
+        TypedQuery<PartitaDiCalcio> getPartita = em.createQuery("SELECT c FROM PartitaDiCalcio c WHERE c.squadra_vincente = :squadraospite", PartitaDiCalcio.class);
+        getPartita.setParameter("squadraospite", squadraospite);
+        return getPartita.getResultList();
+    }
+
 
 }

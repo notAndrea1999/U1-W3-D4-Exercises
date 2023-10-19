@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.time.LocalDate;
+import java.util.List;
 
 public class Application {
 
@@ -42,6 +43,8 @@ public class Application {
 //            List<PartitaDiCalcio> partitaDiCalcioList = ed.getPartiteVinteInCasa("Roma");
 //            partitaDiCalcioList.forEach(partitaDiCalcio -> System.out.println(partitaDiCalcio));
 
+            List<PartitaDiCalcio> partitaDiCalcioList = ed.getPartiteVinteInTrasferta("Lazio");
+            partitaDiCalcioList.forEach(partitaDiCalcio -> System.out.println(partitaDiCalcio));
 
         } catch (Exception ex) {
             System.out.println(ex);
